@@ -1,3 +1,13 @@
-# node-express-mongoose-boilerplate
-A Boilerplate for creating Node.js apps with Express.js and MongoDB via Mongoose
+# BugTraq
 
+A Bug Tracking application to make managing bugs and projects easier, both for developers and project managers.
+
+
+
+### Features
+
++ Coming Soon
+
+## API Documentation
+
++ Coming Soon

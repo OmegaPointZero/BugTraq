@@ -1,7 +1,8 @@
-module.exports = (function(app,passport){
+const express = require('express')
+const router = express.Router()
     
-    app.get('/', (req,res) => {
-        res.render('home.ejs')
-    })    
+router.get('/', (req,res) => {
+    res.render('home.ejs')
+})    
 
-})
+module.exports = router;

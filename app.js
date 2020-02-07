@@ -8,6 +8,8 @@ const app = express();
 require('dotenv').config();
 const session = require('express-session');
 const flash = require('connect-flash');
+const configURL = process.env.CONFIGURL /*$3rverMain!*/
+
 
 /* Prevent CORS issues */
 var cors = (function(req,res,next){
@@ -21,7 +23,7 @@ var cors = (function(req,res,next){
 app.use(cors)
 
 /* MongoDB/Mongoose configuration */
-mongoose.connect(configURL, {useNewUrlParser:true}).then(res => console.log('Successfully connected to Mongo database')).catch(err=>console.log(err))
+mongoose.connect(configURL/*, {useNewUrlParser:true}*/).then(res => console.log('Successfully connected to Mongo database')).catch(err=>console.log(err))
 mongoose.set('useCreateIndex', true);
 
 require('./config/passport')(passport);
@@ -42,7 +44,7 @@ app.use(session({secret:process.env.SESSION_SECRET,resave:true,saveUninitialized
 app.use(passport.initialize());
 app.use(passport.session());
 
-var routes = require('./app/routes/routes.js')(app,passport);
+var routes = require('./app/routes/routes.js')
 app.use('/', routes);
 
 
