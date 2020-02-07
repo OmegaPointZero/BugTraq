@@ -44,9 +44,13 @@ app.use(session({secret:process.env.SESSION_SECRET,resave:true,saveUninitialized
 app.use(passport.initialize());
 app.use(passport.session());
 
-var routes = require('./app/routes/routes.js')
-app.use('/', routes);
+const routes = require('./app/routes/routes.js');
+const api = require('./app/routes/api.js');
+const userlogic = require('./app/routes/users.js');
 
+app.use('/', routes);
+app.use('/api', api);
+app.use('/users', userlogic);
 
 app.engine('html', require('ejs').renderFile);
 app.set('views', 'views');
