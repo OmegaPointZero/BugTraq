@@ -9,20 +9,20 @@ var userSchema = new mongoose.Schema({
     firstName: String,            
     lastName: String,          
     submittedPRs: Array,      /*array of PRIDs */ 
-    role: String,            /* (["Developer", "Project Manager", "Intern"]) */ 
+    role: String,            /* (["Developer", "Project Manager"])*/ 
     assignedBugs: Array,    /* Array of bug IDs assigned to user */ 
     resolvedBugs: Array    /* Array of bug IDs resolved by user */  
-},{collection:'users'});
+},{collection:'users'}); 
 
-// Hashing the password
-userSchema.methods.generateHash = function(password){
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
-}
+// Hashing the password 
+userSchema.methods.generateHash = function(password){ 
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null) 
+} 
 
-// Compare and check if password is correct
-userSchema.methods.validPassword = function(password){
-    return bcrypt.compareSync(password, this.password)
-}
+// Compare and check if password is correct 
+userSchema.methods.validPassword = function(password){ 
+    return bcrypt.compareSync(password, this.password) 
+} 
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema); 
