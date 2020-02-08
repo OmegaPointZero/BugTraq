@@ -1,14 +1,38 @@
 const express = require('express')
 const router = express.Router()
-    
+const passport = require('passport')
+const Users = require('../models/user')
+const PRs = require('../models/pr')
+const Bugs = require('../models/bugs')
+const initData = require('../models/initd')
+
 router.get('/', (req,res) => {
-    res.render('home.ejs')
+    if(req.user === undefined){
+        res.render('home.ejs')
+    }else{
+        res.redirect('/dashboard')
+    }
 });
 
 router.get('/login',(req,res) => {
     console.log(`req.user: ${req.user}`)
-    res.send('login.html')
+    res.render('login.html')
 });
+
+/*
+router.post('/login', (req,res) => {
+    console.log(req.body)
+})
+*/
+router.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/dashboard',
+    failureRedirect : '/',
+    /*failureFlash: true,*/
+}));
+
+router.get('/dashboard',(req,res) => {
+    res.send('Dashbooooooooard!')
+})
 
 router.get('/initialize', (req,res) => {
     var clearCollection = (collection) => {
