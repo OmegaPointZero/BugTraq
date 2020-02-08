@@ -4,44 +4,21 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 ### Next Sprint
 
-+ Add notifications objects to user Array
-    ```
-        obj = {
-            time: TIMESTAMP,
-            message: "",
-            icon: "" /* Icon to display with alert */
-        }
-    ```
-+ Figure out how to add messages?
-    + Keep as a thread, so one object with an array
-    ``` 
-        obj = {
-            senderName: "",
-            senderID: "",
-            lastMessage: TIMESTAMP,
-            unread: 0,
-            messages: [
-                {   
-                    type: "OUT",
-                    time: TIMESTAMP,
-                    message: "Thank you!",
-                    read: true
-                }, {
-                    type: "IN",
-                    time: TIMESTAMP,
-                    message: "Here's the stuff you requested!",
-                    read: true
-                }                
-            ]
-        } 
++ Add avatars to users, tie them to user schema, add image to both home page and messages pages
++ Fix time display for messages and alerts
 
-    ```
- 
++ Update reinitialization function to create 3 days' worth of data
+    + Make it so timestamps are automatically generated to:
+        + Hand out tickets at 0800 every day
+        + Have responses filed throughout the day
+        + Have reviews filed after responses
++ Update the dashboard to allow you to choose 1, 2 or 3 or more days' worth of data
+
 + Make page for each component
 + Make endpoints for the following:
-    + /user/bugs
     + /user/profile
     + /user/messages
+    + /user/messages/:id (individual message thread)
     + /user/team
     + /bugs/open
     + /bugs/ (same as /bugs/all)
