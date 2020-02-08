@@ -31,7 +31,17 @@ router.post('/login', passport.authenticate('local-login', {
 }));
 
 router.get('/dashboard',(req,res) => {
-    res.send('Dashbooooooooard!')
+    if(!req.user){
+        res.redirect('/login')
+    } else {
+        Users.find({},function(error,users){
+            PRs.find({},function(err,prs){
+                Bugs.find({},function(e,bugs){
+                    res.render('dashboard.ejs', {user: req.user, users: users, prs: prs, bugs:bugs})
+                })
+            })
+        })
+    }
 })
 
 router.get('/initialize', (req,res) => {

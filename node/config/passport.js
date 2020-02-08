@@ -43,7 +43,6 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true
     }, function (req, username, password, done) {
-        console.log(req.body)
         User.findOne({'email' : username }, function(err,user){
             console.log(user)
             if(err){
@@ -52,9 +51,6 @@ module.exports = function(passport) {
             if(!user){
                 return done(null,false,req.flash('loginMessage','Incorrect Login Credentials'))
             } else if(!user.validPassword(password)){
-                console.log('Wrong password')
-                console.log('try this:')
-                console.log(user.generateHash(password))
                 return done(null,false,req.flash('loginMessage','Incorrect Login Credentials'))
             } else {  return done(null, user) }
         });
