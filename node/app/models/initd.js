@@ -80,7 +80,13 @@ module.exports = [
                     } 
                 ] 
             },
-            "alerts": []
+            "alerts": [
+                {
+                    time: 1141039963666,
+                    message: "You have an alert!",
+                    icon: "" /* Icon to display with alert */
+                }
+            ]
         },{
             "date" : 1141039663666,
             "employeeID": "0999",
