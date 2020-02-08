@@ -10,9 +10,9 @@ var data = JSON.parse(document.getElementById("resolvedBugTracker").textContent)
 var data2 = JSON.parse(document.getElementById("openBugTracker").textContent);
 var d1 = [data["Critical"], data["High"], data["Medium"], data["Low"], data["Documentation"], data["Feature Request"]]
 var d2 = [data2["Critical"], data2["High"], data2["Medium"], data2["Low"], data2["Documentation"], data2["Feature Request"]]
-var d3 = d1;
-for(var i=0;i<d3.length;i++){
-    d3[i] = d3[i] + d2[i]
+var d3 = []
+for(var i=0;i<d2.length;i++){
+    d3[i] = d1[i] + d2[i]
 }
 
 var resolvedPieChart = new Chart(ctx1, {
