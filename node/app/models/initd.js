@@ -438,7 +438,7 @@ module.exports = [
             "dateFiled": 1580551359315,
             "assignedTo": "",
             "status": "Unassigned",
-            "type": "",
+            "type": "Low",
             "active": true,
             "submittedPRs": [],
             "fixedOn": 0,
