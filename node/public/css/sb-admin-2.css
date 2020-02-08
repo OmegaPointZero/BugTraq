@@ -9398,6 +9398,10 @@ a.text-info:hover, a.text-info:focus {
   color: #f6c23e !important;
 }
 
+.text-orange {
+  color: #e0893c !important;
+}
+
 a.text-warning:hover, a.text-warning:focus {
   color: #dda20a !important;
 }
