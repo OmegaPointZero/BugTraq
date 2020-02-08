@@ -36,6 +36,51 @@ module.exports = [
             "role": "Developer",
             "assignedBugs": [],
             "resolvedBugs": ["3ec13b959"],
+            "messages": {
+                unreadMessages: 2, 
+                unreadThreads: 1, 
+                threads: [
+                    {
+                        senderName: "Terry",
+                        senderID: "0811c",
+                        lastMessage: 1141039663667,
+                        unread: 2,
+                        messages: [
+                            {   
+                                type: "IN",
+                                time: 1141039663667,
+                                message: "Nevermind, reassigned",
+                                read: false
+                            }, {
+                                type: "IN",
+                                time: 1141039663666,
+                                message: "Can you jump on that Critical bug right now?",
+                                read: false
+                            }                
+                        ]
+                    },
+                    {
+                        senderName: "Kayla",
+                        senderID: "0999",
+                        lastMessage: 1141039963666,
+                        unread: 0,
+                        messages: [
+                            {   
+                                type: "OUT",
+                                time: 1141039963666,
+                                message: "Thank you!",
+                                read: true
+                            }, {
+                                type: "IN",
+                                time: 1141039663666,
+                                message: "Here's the stuff you requested!",
+                                read: true
+                            }                
+                        ]
+                    } 
+                ] 
+            },
+            "alerts": []
         },{
             "date" : 1141039663666,
             "employeeID": "0999",

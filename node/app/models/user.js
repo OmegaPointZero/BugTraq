@@ -11,7 +11,9 @@ var userSchema = new mongoose.Schema({
     submittedPRs: Array,      /*array of PRIDs */ 
     role: String,            /* (["Developer", "Project Manager"])*/ 
     assignedBugs: Array,    /* Array of bug IDs assigned to user */ 
-    resolvedBugs: Array    /* Array of bug IDs resolved by user */  
+    resolvedBugs: Array,    /* Array of bug IDs resolved by user */  
+    messages: Object,
+    alerts: Array,
 },{collection:'users'}); 
 
 // Hashing the password 
