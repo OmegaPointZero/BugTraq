@@ -1,3 +1,11 @@
+const genRecentStamp = (function(daysPrev,hour,minute,second){
+    var n = new Date().getTime()
+    var newDate = new Date(n-(86400000*daysPrev))
+    var dateSplit = newDate.toString().split(' ')
+    dateSplit[4] = hour.toString() + ":" + minute.toString() + ":" + second.toString()
+    return new Date(dateSplit.join(' ')).getTime()
+})
+
 module.exports = [
     /* Initialize users, 7 developers, 1 intern, 1 project manager */
     /* recreate passwords to make them all functional to login to */
