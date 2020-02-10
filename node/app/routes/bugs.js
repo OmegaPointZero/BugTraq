@@ -21,16 +21,7 @@ router.get('/unassigned', isAuthed, (req,res) => {
         }
         res.render('bugs.ejs', {user:req.user,bugs:bugs,title:"Unassigned Bugs"})
     })
-})    
-
-router.get('/active', isAuthed, (req,res) => {
-    Bugs.find({status:"Unassigned"},function(err,bugs){
-        if(err){
-            console.log(err)
-        }
-        res.render('bugs.ejs', {user:req.user,bugs:bugs,title:"Open Bugs"})
-    })
-})    
+})     
 
 router.get('/mine', isAuthed, (req,res) => {
     Bugs.find({assignedTo:req.user.employeeID},function(err,bugs){
@@ -52,6 +43,32 @@ router.get('/bug/:id', isAuthed, (req,res) => {
 
 router.get('/new', isAuthed, (req,res) => {
     res.render('newbug.ejs', {user:req.user})
+})
+
+router.post('/new', isAuthed, (req,res) => {
+    var BG = new Bugs()
+    BG.repo = req.body.repo
+    BG.summary = req.body.summary
+    BG.type = req.body.type
+    BG.dateFiled = new Date().getTime()
+    BG.filedByID = req.user.employeeID
+    BG.fliedByName = req.user.firstName
+    BG.status = "Unassigned"
+    BG.active = true;
+    BG.submittedPRs = []
+    BG.fixedOn = 0
+    BG.finalPR = ""
+    BG.bugID = Math.floor(Math.random()*BG.dateFiled).toString(16)
+    BG.assignedTo = ""
+    BG.assignedName = ""
+    BG.project = "Employee Management Suite"
+    BG.commit = "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06"
+    BG.save(function(err){
+        if(err){
+            console.log(err)
+        }
+        res.redirect('/bugs/all')
+    })
 })
 
 function isAuthed(req,res,next){

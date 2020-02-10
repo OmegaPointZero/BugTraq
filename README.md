@@ -12,8 +12,14 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + /user/messages/:id (individual message thread)
     + /user/team
 
-    + /bugs/new
     + /bugs/bug/:id (the actual bug profile being worked on)
+
++ Touch up the following:
+    + Metadata and required packages
+    + Titles and such
+    + Touch up title page, make new image for it
+
++ Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
 
 #### Tertiary objectives
 
@@ -21,6 +27,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + Create 3 days' worth of data
 + Sort the messages in the dashboard by the most recent, unread first
 + Flash messages for login failures
++ Add "projects", that auto-populate parts of the new bug creator, and let the user specify the project
 
 ### Development notes
 
