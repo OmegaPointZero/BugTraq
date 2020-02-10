@@ -14,7 +14,16 @@ router.get('/all', isAuthed, (req,res,next) => {
     })
 })
 
-router.get('/open', isAuthed, (req,res) => {
+router.get('/unassigned', isAuthed, (req,res) => {
+    Bugs.find({status:"Unassigned"},function(err,bugs){
+        if(err){
+            console.log(err)
+        }
+        res.render('bugs.ejs', {user:req.user,bugs:bugs,title:"Unassigned Bugs"})
+    })
+})    
+
+router.get('/active', isAuthed, (req,res) => {
     Bugs.find({status:"Unassigned"},function(err,bugs){
         if(err){
             console.log(err)

@@ -9,6 +9,7 @@ var userSchema = new mongoose.Schema({
     firstName: String,            
     lastName: String,          
     submittedPRs: Array,      /*array of PRIDs */ 
+    submittedBugs: Array,
     role: String,            /* (["Developer", "Project Manager"])*/ 
     avatar: String,
     assignedBugs: Array,    /* Array of bug IDs assigned to user */ 
