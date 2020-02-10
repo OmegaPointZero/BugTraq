@@ -239,7 +239,7 @@
     
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Open Bugs</h1>
+            <h1 class="h3 mb-0 text-gray-800">All Bugs</h1>
           </div>
 
             <%=bugs%>

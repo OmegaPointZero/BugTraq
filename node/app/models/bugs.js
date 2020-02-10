@@ -6,6 +6,7 @@ var bugSchema = new mongoose.Schema({
     repo: String, /* URL of the project repo */
     commit: String, /* Commit with known bug */
     dateFiled: Number, /* Date Bug was filed on */
+    bugID: String,
     assignedTo: String, /* employeeID of employee assigned Bug */
     summary: String,
     status: String, /* (["Unassigned", "Assigned", "In Progress", "Under Review", "PR Rejected", "Resolved"]) */

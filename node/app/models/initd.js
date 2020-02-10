@@ -678,9 +678,9 @@ module.exports = [
         },{
             "project": "Employee Management Suite",
             "repo": "https://github.com/OmegaPointZero/example",
-            "bugID": "",
+            "bugID": "c154207e9",
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
-            "summary": "",
+            "summary": "This app's developer is still looking for full-time employment.",
             "dateFiled": genRecentStamp(3,8,2,17),
             "assignedTo": "",
             "status": "Unassigned",

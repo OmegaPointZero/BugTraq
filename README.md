@@ -5,6 +5,12 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 ### Next Sprint
 
 + Make page for each component
++ Introduce middleware to make sure endpoints can only be accessed by logged in users
+    + Redirect to either landing page, or login page if not logged in
++ Update User schema to include a list of bugs they submitted
++ Update bugs schema to hold ID _and_ name of the assigned employee, as well as the filing employee
++ Tweak bugs template file to allow for multiple reuses, minimizing the number of files needed
+
 + Make endpoints for the following:
 
     + /user/profile
@@ -18,6 +24,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + /bugs/mine
     + /bugs/bug/:id (the actual bug profile being worked on)
 
+    + / (home landing page, redirect to /dashboard is user is logged in)
 
 #### Tertiary objectives
 
@@ -28,7 +35,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 ### Development notes
 
-The assignment of user avatars is the last thing needed to be done
+The /bugs/all route works, but is not linked to anywhere. What I need to do now, is to tweak the allbugs.ejs to be THE singular bugs template file, so that all other /bugs/ endpoints use that template (with the exception of /bugs/bug/:id and /bugs/new, as the former will have more detailed information displayed differently (and allow the user to submit a PR to fix it), and the latter will allow a user to file a new bug. Schemas have to be tweaked, and from an individual bug's page it should have the option to "claim" it and assign it to yourself.
 
 ### Features
 

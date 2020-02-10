@@ -4,16 +4,22 @@ const PRs = require('../models/pr')
 const Bugs = require('../models/bugs')
 const initData = require('../models/initd')
 
-router.get('/', (req,res) => {
-    res.send({messageResponse:"Bugs live here!"})
+router.get('/', (req,res,next) => {
+    next()
+})    
+
+router.get('/all', (req,res,next) => {
+    Bugs.find({},function(err,bugs){
+        res.render('allbugs.ejs', {user:req.user,bugs:bugs})
+    })
 })    
 
 router.get('/open', (req,res) => {
-    Bugs.find({status:"OPEN"},function(err,bugs){
+    Bugs.find({status:"Unassigned"},function(err,bugs){
         if(err){
             console.log(err)
         }
-        res.render('openbugs.ejs', {bugs:bugs})
+        res.render('openbugs.ejs', {user:req.user,bugs:bugs})
     })
 })    
 
@@ -22,18 +28,21 @@ router.get('/mine', (req,res) => {
         if(err){
             console.log(err)
         }
-        res.render('mybugs.ejs', {bugs:bugs})
+        res.render('mybugs.ejs', {user:req.user,bugs:bugs})
     })
 })    
 
-router.get('/bugs/bug/:id', (req,res) => {
+router.get('/bug/:id', (req,res) => {
     Bugs.find({bugID:req.params.id},function(err,bugs){
         if(err){
             console.log(err)
         }
-        res.render('openbugs.ejs', {bugs:bugs})
+        res.render('openbugs.ejs', {user:req.user,bugs:bugs})
     })
+})
 
-})    
+router.get('/new', (req,res) => {
+    res.render('newbug.ejs', {user:req.user})
+})
 
 module.exports = router;
