@@ -4,9 +4,6 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 ### Next Sprint
 
-+ Make page for each component
-+ Introduce middleware to make sure endpoints can only be accessed by logged in users
-    + Redirect to either landing page, or login page if not logged in
 + Update User schema to include a list of bugs they submitted
 + Update bugs schema to hold ID _and_ name of the assigned employee, as well as the filing employee
 + Tweak bugs template file to allow for multiple reuses, minimizing the number of files needed
@@ -19,9 +16,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + /user/messages/:id (individual message thread)
     + /user/team
 
-    + /bugs/open
-    + /bugs/ (same as /bugs/all)
-    + /bugs/mine
+    + /bugs/new
     + /bugs/bug/:id (the actual bug profile being worked on)
 
     + / (home landing page, redirect to /dashboard is user is logged in)

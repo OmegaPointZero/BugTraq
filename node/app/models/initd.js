@@ -684,7 +684,7 @@ module.exports = [
             "dateFiled": genRecentStamp(3,8,2,17),
             "assignedTo": "",
             "status": "Unassigned",
-            "type": "Low",
+            "type": "High",
             "active": true,
             "submittedPRs": [],
             "fixedOn": 0,

@@ -6,12 +6,8 @@ const PRs = require('../models/pr')
 const Bugs = require('../models/bugs')
 const initData = require('../models/initd')
 
-router.get('/', (req,res) => {
-    if(req.user === undefined){
-        res.render('home.ejs')
-    }else{
-        res.redirect('/dashboard')
-    }
+router.get('/', isAuthed, (req,res) => {
+    res.redirect('/dashboard')
 });
 
 router.get('/login',(req,res) => {
@@ -25,18 +21,14 @@ router.post('/login', passport.authenticate('local-login', {
     /*failureFlash: true,*/
 }));
 
-router.get('/dashboard',(req,res) => {
-    if(!req.user){
-        res.redirect('/login')
-    } else {
-        Users.find({},function(error,users){
-            PRs.find({},function(err,prs){
-                Bugs.find({},function(e,bugs){
-                    res.render('dashboard.ejs', {user: req.user, users: users, prs: prs, bugs:bugs})
-                })
+router.get('/dashboard', isAuthed, (req,res) => {
+    Users.find({},function(error,users){
+        PRs.find({},function(err,prs){
+            Bugs.find({},function(e,bugs){
+                res.render('dashboard.ejs', {user: req.user, users: users, prs: prs, bugs:bugs})
             })
         })
-    }
+    })
 })
 
 router.get('/initialize', (req,res) => {
@@ -73,5 +65,11 @@ router.get('/initialize', (req,res) => {
     res.send('Reinitialization successful')
 
 })
+
+function isAuthed(req,res,next){
+    if(req.isAuthenticated())
+        return next();
+    res.redirect('/login');
+}
 
 module.exports = router;
