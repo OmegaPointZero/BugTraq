@@ -48,10 +48,12 @@ app.use(passport.session());
 const routes = require('./app/routes/routes.js');
 const api = require('./app/routes/api.js');
 const userlogic = require('./app/routes/users.js');
+const bugs = require('./app/routes/bugs.js');
 
 app.use('/', routes);
 app.use('/api', api);
 app.use('/users', userlogic);
+app.use('/bugs', bugs);
 
 app.engine('html', require('ejs').renderFile);
 app.set('views', 'views');

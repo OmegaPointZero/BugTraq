@@ -10,6 +10,7 @@ var userSchema = new mongoose.Schema({
     lastName: String,          
     submittedPRs: Array,      /*array of PRIDs */ 
     role: String,            /* (["Developer", "Project Manager"])*/ 
+    avatar: String,
     assignedBugs: Array,    /* Array of bug IDs assigned to user */ 
     resolvedBugs: Array,    /* Array of bug IDs resolved by user */  
     messages: Object,
