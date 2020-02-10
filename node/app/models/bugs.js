@@ -7,7 +7,7 @@ var bugSchema = new mongoose.Schema({
     commit: String, /* Commit with known bug */
     dateFiled: Number, /* Date Bug was filed on */
     bugID: String,
-    assignedTo: String, /* employeeID of employee assigned Bug */
+    assignedTo: Object, /* employeeID AND employee name of employee assigned Bug */
     summary: String,
     status: String, /* (["Unassigned", "Assigned", "In Progress", "Under Review", "PR Rejected", "Resolved"]) */
     type: String, /* (["Critical", "High", "Medium", "Low", "Documentation", "Feature Request"]) */
