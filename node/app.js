@@ -52,7 +52,7 @@ const bugs = require('./app/routes/bugs.js');
 
 app.use('/', routes);
 app.use('/api', api);
-app.use('/users', userlogic);
+app.use('/user', userlogic);
 app.use('/bugs', bugs);
 
 app.engine('html', require('ejs').renderFile);

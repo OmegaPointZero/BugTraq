@@ -19,11 +19,6 @@ router.get('/login',(req,res) => {
     res.render('login.html')
 });
 
-/*
-router.post('/login', (req,res) => {
-    console.log(req.body)
-})
-*/
 router.post('/login', passport.authenticate('local-login', {
     successRedirect : '/dashboard',
     failureRedirect : '/',

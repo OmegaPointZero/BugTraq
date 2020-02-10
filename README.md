@@ -6,10 +6,13 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 + Make page for each component
 + Make endpoints for the following:
+
     + /user/profile
+    + /user/profile/:id
     + /user/messages
     + /user/messages/:id (individual message thread)
     + /user/team
+
     + /bugs/open
     + /bugs/ (same as /bugs/all)
     + /bugs/mine
@@ -21,6 +24,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 + Update the dashboard to allow you to choose 1, 2 or 3 or more days' worth of data
     + Create 3 days' worth of data
 + Sort the messages in the dashboard by the most recent, unread first
++ Flash messages for login failures
 
 ### Development notes
 
