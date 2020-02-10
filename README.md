@@ -11,9 +11,9 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + /user/messages
     + /user/messages/:id (individual message thread)
     + /user/team
-
     + /bugs/bug/:id (the actual bug profile being worked on)
 
++ Move everything on /bugs/new to a better looking display card
 + Touch up the following:
     + Metadata and required packages
     + Titles and such
