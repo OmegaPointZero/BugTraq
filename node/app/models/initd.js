@@ -497,7 +497,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Saving records of employees with multiple roles results in multiple employee profiles being saved.",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "3144",
+            "assignedTo": {
+                "employeeID":"3144",
+                "name": "Captain"
+            },
             "status": "Resolved",
             "type": "Low",
             "active": false,
@@ -511,7 +514,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Saving records of employees with multiple roles results in multiple employee profiles being saved.",
             "dateFiled": genRecentStamp(1,8,2,17),
-            "assignedTo": "5613",
+            "assignedTo": {
+                "employeeID":"5613",
+                "name": "Josh"
+            },
             "status": "Assigned",
             "type": "Medium",
             "active": true,
@@ -526,7 +532,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Invalid employee ID being passed to login causes server crash.",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "3144",
+            "assignedTo": {
+                "employeeID":"3144",
+                "name": "Captain"
+            },
             "status": "Resolved",
             "type": "High",
             "active": false,
@@ -541,7 +550,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Power still transmitted via cables, not wirelessly.",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "0369",
+            "assignedTo": {
+                "employeeID":"0369",
+                "name": "Nikola"
+            },
             "status": "Resolved",
             "type": "Medium",
             "active": false,
@@ -556,7 +568,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "API needs to be documented.",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "c371",
+            "assignedTo": {
+                "employeeID":"c371",
+                "name": "Morty"
+            },
             "status": "Resolved",
             "type": "Documentation",
             "active": false,
@@ -570,7 +585,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Login form vulnerable to SQL injection attacks",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "5613",
+            "assignedTo": {
+                "employeeID":"5613",
+                "name": "Josh"
+            },
             "status": "Resolved",
             "type": "Critical",
             "active": false,
@@ -584,7 +602,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Server crashes when employee tasks are updated with anything other than the default task type",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "0999",
+            "assignedTo": {
+                "employeeID":"0999",
+                "name": "Kayla"
+            },
             "status": "Resolved",
             "type": "High",
             "active": false,
@@ -598,7 +619,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Manually create a ton of mock database entries to populate the DB with for testing and demo purposes",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "c371",
+            "assignedTo": {
+                "employeeID":"c371",
+                "name": "Morty"
+            },
             "status": "In Progress",
             "type": "Low",
             "active": true,
@@ -612,7 +636,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Test sandbox escape vulnerability and create fix",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "3169",
+            "assignedTo": {
+                "employeeID":"3169",
+                "name": "John"
+            },
             "status": "In Progress",
             "type": "Medium",
             "active": true,
@@ -626,7 +653,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Test sandbox escape vulnerability and create fix",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "3169",
+            "assignedTo": {
+                "employeeID":"3169",
+                "name": "John"
+            },
             "status": "Assigned",
             "type": "Low",
             "active": true,
@@ -640,7 +670,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Add wireless electricity to the entire building",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "0369",
+            "assignedTo": {
+                "employeeID":"0369",
+                "name": "Nikola"
+            },
             "status": "In Progress",
             "type": "Feature Request",
             "active": true,
@@ -654,7 +687,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Refactor of all pipe functions",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "1011",
+            "assignedTo": {
+                "employeeID":"1011",
+                "name": "Bender"
+            },
             "status": "PR Rejected",
             "type": "Low",
             "active": true,
@@ -668,7 +704,10 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "Child threads not being killed correctly in cleanup()",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "c137",
+            "assignedTo": {
+                "employeeID":"c137",
+                "name": "Rick"
+            },
             "status": "Under Review",
             "type": "Low",
             "active": true,
@@ -682,7 +721,7 @@ module.exports = [
             "commit": "8101ae6a9647d20d54c30029eaa01f9e1bdd9f06",
             "summary": "This app's developer is still looking for full-time employment.",
             "dateFiled": genRecentStamp(3,8,2,17),
-            "assignedTo": "",
+            "assignedTo": {},
             "status": "Unassigned",
             "type": "High",
             "active": true,
