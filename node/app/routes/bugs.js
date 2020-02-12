@@ -10,7 +10,7 @@ router.get('/', isAuthed, (req,res,next) => {
 
 router.get('/all', isAuthed, (req,res,next) => {
     Bugs.find({},function(err,bugs){
-        res.render('bugs.ejs', {user:req.user,bugs:bugs,title:"All Bugs"})
+        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"All Bugs",tableTitle:"Displaying Bugs",tableType:"Bug",passedItemsLen:bugs.length})
     })
 })
 
@@ -19,7 +19,7 @@ router.get('/unassigned', isAuthed, (req,res) => {
         if(err){
             console.log(err)
         }
-        res.render('bugs.ejs', {user:req.user,bugs:bugs,title:"Unassigned Bugs"})
+        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"Unassigned Bugs",tableTitle:"Displaying Bugs",tableType:"Bug",passedItemsLen:bugs.length})
     })
 })     
 
@@ -28,7 +28,7 @@ router.get('/mine', isAuthed, (req,res) => {
         if(err){
             console.log(err)
         }
-        res.render('bugs.ejs', {user:req.user,bugs:bugs,title:"My Bugs"})
+        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"My Bugs",tableTitle:"Displaying Bugs",tableType:"Bug",passedItemsLen:bugs.length})
     })
 })    
 
@@ -37,7 +37,7 @@ router.get('/bug/:id', isAuthed, (req,res) => {
         if(err){
             console.log(err)
         }
-        res.render('openbugs.ejs', {user:req.user,bugs:bugs})
+        res.render('openbugs.ejs', {user:req.user,passedItems:bugs})
     })
 })
 

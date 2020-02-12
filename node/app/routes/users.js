@@ -4,7 +4,7 @@ const Users = require('../models/user')
     
 router.get('/team', isAuthed, (req,res) => {
     Users.find({},function(err,users){
-        res.render('team.ejs', {user:req.user,team:users})
+        res.render('tableview.ejs', {user:req.user,passedItems:users,title:"My Team",tableTitle:"Displaying Team Members",tableType:"Team",})
     })
 })
 

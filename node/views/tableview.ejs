@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>New Bug</title>
+  <title>BugTracc - Dashboard</title>
 
   <!-- Custom fonts for this template -->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -243,44 +243,76 @@
     
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">File a New Bug</h1>
+            <h1 class="h3 mb-0 text-gray-800"><%=title%></h1>
           </div>
 
-              <!-- Basic Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Submit New Bug Form</h6>
-                </div>
-                <div class="card-body">
 
-                    <!-- New Bug Input Form -->
-                    <form method="POST" action="/bugs/new">
-                        <label>
-                            <h5>Link to the Repo</h5>
-                        </label>
-                        <input name="repo" class="form-control form-control-user" id="repoLink" aria-describedby="repoLinkHelp" placeholder="Link to the Repo..."><br />
-                        <label>
-                            <h5>Brief Summary</h5>
-                        </label>
-                        <input name="summary" class="form-control form-control-user" id="summary" aria-describedby="summaryHelp" placeholder="A brief summary of the issue"><br />
-                        <label>
-                            <h5>Severity</h5>
-                        </label>                
-                        <select name="type">
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                            <option value="Critical">Critical</option>
-                            <option value="Documentation">Documentation</option>
-                            <option value="Feature Request">Feature Request</option>
-                        </select>
-                        <button class="btn btn-primary btn-user btn-block">
-                            Send
-                        </button>
-                    </form>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary"><%=tableTitle%></h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <% if(tableType==="Bug"){ %>
+                          <th>Bug ID</th>
+                          <th>Summary</th>
+                          <th>Type</th>
+                          <th>Assigned To</th>
+                          <th>Status</th>
+                          <th>Date</th>
+                          <th>Active</th>
+                      <% } else if(tableType==="Team"){%>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email</th>
+                          <th>Employee ID</th>
+                          <th>Role</th>
+                      <% } %>
+                    </tr>
+                  </thead>
+                  <tfoot>
 
-                </div>
+                  </tfoot>
+                  <tbody>
+
+                    <%for(var i=0;i<passedItems.length;i++){%>
+                        <tr>
+                          <% if(tableType==="Bug"){ %>
+                            <td><%=passedItems[i].bugID%></td>
+                            <td><%=passedItems[i].summary%></td>
+                            <td><%=passedItems[i].type%></td>
+                            <td><%=passedItems[i].assignedName%></td>
+                            <td><%=passedItems[i].status%></td>
+                            <td><%=(new Date(passedItems[i].dateFiled)).toString().split(' ').splice(1,4).join(' ')%></td>
+                            <td><%=passedItems[i].active%></td>
+                          <% } else if(tableType==="Team"){ %>
+                            <td><%=passedItems[i].firstName%></td>
+                            <td><%=passedItems[i].lastName%></td>
+                            <td><%=passedItems[i].email%></td>
+                            <td><%=passedItems[i].employeeID%></td>
+                            <td><%=passedItems[i].role%></td>
+                          <% } %>
+                        </tr>
+                    <% } %>
+                  </tbody>
+                </table>
               </div>
+            </div>
+          </div>
+
+
+
+
+        <script>
+            $(document).ready(function(){
+                $('#myTable').DataTable();
+            });
+        </script>
+
 
 
         </div>
