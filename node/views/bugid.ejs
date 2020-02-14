@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BugTracc - Dashboard</title>
+  <title>BugTracc - View Bug</title>
 
   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -239,11 +239,58 @@
     
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">My Team</h1>
+            <h1 class="h3 mb-0 text-gray-800">Bug Manager</h1>
           </div>
 
+              <!-- Basic Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Bug <%=passedItems.bugID%></h6>
+                </div>
+                <div class="card-body">
+                    <h5>Project: <%=passedItems.project%></h5>
+                    <h5>Repo: <%=passedItems.repo%></h5>
+                    <h5>Commit: <%=passedItems.commit%></h5>
+                    <h5>Bug Type: <%=passedItems.type%></h5>
+                    <h5>Status: <%=passedItems.status%></h5>
+                    <h5>Filed On: <%=(new Date(passedItems.dateFiled)).toString().split(' ').splice(1,4).join(' ')%></h5>
+                    <% var isMine = (passedItems.assignedTo === user.employeeID) %>
+                    <% if(isMine){%>
+                        <h5>Assigned to: Me</h5>
+                    <% } else { %>
+                        <h5>Assigned to: <a href="/users/profile/<%=passedItems.assignedTo%>"><%=passedItems.assignedName%></a></h5>
+                    <% } %>
+                    <h5>Summary: <%=passedItems.summary%></h5>
+                    <%if(isMine && passedItems.status != "Resolved"){%>
+                    <h5>Submit a fix</h5>
 
-
+                    <!-- PR Submission Form -->
+                    <div class="card shadow mb-4 card-body">
+                        <form method="POST" action="/bugs/submitfix">
+                            <label>
+                                <h5>Link to the Pull Request</h5>
+                            </label>
+                            <input name="prUL" class="form-control form-control-user" id="repoLink" aria-describedby="repoLinkHelp" placeholder="Link to the Pull Request..."><br />
+                            <label>
+                                <h5>Notes</h5>
+                            </label>
+                            <input name="notes" class="form-control form-control-user" id="summary" aria-describedby="summaryHelp" placeholder="A brief summary of the issue"><br />
+                            <input name="bugID" value="<%=passedItems.bugID%>" style="display:none">
+                            <button class="btn btn-primary btn-user btn-block">
+                                File
+                            </button>
+                        </form>
+                    </div>
+                    <%}%> 
+                    <h5>Number of PRs Submitted: <%=passedItems.submittedPRs.length%></h5>
+                    <% if(passedItems.submittedPRs.length>0){%>
+                        <h5>PRs:</h5>
+                            <% passedItems.submittedPRs.forEach(function(PR){ %>
+                                <h6><a href="/bugs/pr/<%=PR%>"><%=PR%></a></h6>
+                            <% }) %>
+                    <% } %>
+                </div>
+            </div>
         </div>
         <!-- /.container-fluid -->
 

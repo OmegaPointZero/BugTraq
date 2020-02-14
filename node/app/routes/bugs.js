@@ -33,11 +33,11 @@ router.get('/mine', isAuthed, (req,res) => {
 })    
 
 router.get('/bug/:id', isAuthed, (req,res) => {
-    Bugs.find({bugID:req.params.id},function(err,bugs){
+    Bugs.findOne({bugID:req.params.id},function(err,bug){
         if(err){
             console.log(err)
         }
-        res.render('openbugs.ejs', {user:req.user,passedItems:bugs})
+        res.render('bugid.ejs', {user:req.user,passedItems:bug})
     })
 })
 
@@ -68,6 +68,23 @@ router.post('/new', isAuthed, (req,res) => {
             console.log(err)
         }
         res.redirect('/bugs/all')
+    })
+})
+
+router.post('/submitfix', isAuthed, (req,res) =>{
+    var PR = new PRs()
+    PR.date = new Date().getTime()
+    PR.employeeID = req.user.employeeID;
+    PR.prURL = req.body.URL;
+    PR.bugID = req.body.bugID;
+    PR.resolvedIssue = false;
+    PR.notes = req.body.notes;
+    PR.reviewedBy = {}
+    PR.save(function(err){
+        if(err){
+            console.log(err)
+        }
+        res.send('PR submitted')
     })
 })
 

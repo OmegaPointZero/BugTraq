@@ -283,7 +283,7 @@
                     <%for(var i=0;i<passedItems.length;i++){%>
                         <tr>
                           <% if(tableType==="Bug"){ %>
-                            <td><%=passedItems[i].bugID%></td>
+                            <td><a href="/bugs/bug/<%=passedItems[i].bugID%>"><%=passedItems[i].bugID%></a></td>
                             <td><%=passedItems[i].summary%></td>
                             <td><%=passedItems[i].type%></td>
                             <td><%=passedItems[i].assignedName%></td>
@@ -291,6 +291,7 @@
                             <td><%=(new Date(passedItems[i].dateFiled)).toString().split(' ').splice(1,4).join(' ')%></td>
                             <td><%=passedItems[i].active%></td>
                           <% } else if(tableType==="Team"){ %>
+                            <a href="/users/profile/<%=passedItems[i].employeeID%>">
                             <td><%=passedItems[i].firstName%></td>
                             <td><%=passedItems[i].lastName%></td>
                             <td><%=passedItems[i].email%></td>
@@ -298,6 +299,7 @@
                             <td><%=passedItems[i].role%></td>
                             <td>Messages</td>
                           <% } %>
+                            </a>
                         </tr>
                     <% } %>
                   </tbody>
