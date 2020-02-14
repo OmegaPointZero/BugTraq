@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const PRs = require('../models/pr')
 const Bugs = require('../models/bugs')
+const User = require('../models/user')
 const initData = require('../models/initd')
 
 router.get('/', isAuthed, (req,res,next) => {
@@ -86,13 +87,27 @@ router.post('/submitfix', isAuthed, (req,res) =>{
     PR.reviewedBy = {}
     PR.save(function(err){
         if(err){
+            console.log("Error saving PR:")
             console.log(err)
         }
-        Bugs.findOneAndUpdate({"bugID":req.body.bugID},{$push:{"submittedPRs":prid},$set:{"status":"Under Review"}},function(error){
+        Bugs.findOneAndUpdate({"bugID":req.body.bugID},{$push:{"submittedPRs":prid},$set:{"status":"Under Review"}},function(error,thisbug){
             if(error){
+                console.log("Error updating Bugs:")
                 console.log(error)
             }
-            res.redirect('/bugs/bug/'+req.body.bugID)
+            if(!thisbug){
+                console.log("Error: Bug not found")
+            }
+            User.findOneAndUpdate({"employeeID":req.user.employeeID},{$push:{"submittedPRs":prid}},function(e,thisuser){
+                if(e){
+                    console.log("Error updating user:")
+                    console.log(e)
+                }
+                if(!thisuser){
+                    console.log("Error: User not found")
+                }
+                res.redirect('/bugs/bug/'+req.body.bugID)
+            })
         })
     })
 })
