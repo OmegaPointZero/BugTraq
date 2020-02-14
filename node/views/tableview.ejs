@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BugTracc - Dashboard</title>
+  <title>BugTracc - <%=title%></title>
 
   <!-- Custom fonts for this template -->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -291,13 +291,12 @@
                             <td><%=(new Date(passedItems[i].dateFiled)).toString().split(' ').splice(1,4).join(' ')%></td>
                             <td><%=passedItems[i].active%></td>
                           <% } else if(tableType==="Team"){ %>
-                            <a href="/users/profile/<%=passedItems[i].employeeID%>">
-                            <td><%=passedItems[i].firstName%></td>
-                            <td><%=passedItems[i].lastName%></td>
-                            <td><%=passedItems[i].email%></td>
-                            <td><%=passedItems[i].employeeID%></td>
+                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].firstName%></a></td>
+                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].lastName%></a></td>
+                            <td><a style="color:#858796" href="mailto:<%=passedItems[i].email%>"><%=passedItems[i].email%></a></td>
+                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
                             <td><%=passedItems[i].role%></td>
-                            <td>Messages</td>
+                            <td><a style="color:#858796" href="/user/messages/<%=passedItems[i].employeeID%>">Messages</a></td>
                           <% } %>
                             </a>
                         </tr>

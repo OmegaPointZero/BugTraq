@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BugTracc - View Bug</title>
+  <title>BugTracc - Bug Manager</title>
 
   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -64,7 +64,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Bugs</h6>
             <a class="collapse-item" href="/bugs/mine"><%if(user.assignedBugs.length>0){%><b><%}%>Mine</a></b>
-            <a class="collapse-item" href="/bugs/open">Unassigned</a>
+            <a class="collapse-item" href="/bugs/unassigned">Unassigned</a>
+            <a class="collapse-item" href="/bugs/all">All</a>
             <a class="collapse-item" href="/bugs/new">File New</a>
           </div>
         </div>
