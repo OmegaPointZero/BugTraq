@@ -4,22 +4,29 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 ### Next Sprint
 
++ /bugs/bug/:id (the actual bug profile being worked on)
++ Touch up the following:
+    + Metadata and required packages
+    + Titles and such
+    + Touch up title/login page, make new image for it
+
++ Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
++ Update Schema for bugs to include longer description of issues, update bug submission form to include them, THEN build the /bugs/bug/:id view
 + Make endpoints for the following:
+    + /bugs/pr/:id (details of PR)
 
     + /user/profile
     + /user/profile/:id
     + /user/messages
     + /user/messages/:id (individual message thread)
-    + /user/team
-    + /bugs/bug/:id (the actual bug profile being worked on)
 
-+ Move everything on /bugs/new to a better looking display card
-+ Touch up the following:
-    + Metadata and required packages
-    + Titles and such
-    + Touch up title page, make new image for it
++ Add links to /user/team view
++ Update sidebar code on all pages
 
-+ Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
+#### Bigger things to add
+
++ Integrate Github via their API
+    + Update user schema to hold authentication keys
 
 #### Tertiary objectives
 
