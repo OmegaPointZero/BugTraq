@@ -72,10 +72,14 @@ router.post('/new', isAuthed, (req,res) => {
 })
 
 router.post('/submitfix', isAuthed, (req,res) =>{
+    
+    let prid = (Math.random()*new Date()).toString(16).slice(0,9)
+    console.log(req.body)
     var PR = new PRs()
     PR.date = new Date().getTime()
+    PR.prID = prid
     PR.employeeID = req.user.employeeID;
-    PR.prURL = req.body.URL;
+    PR.prURL = req.body.prURL;
     PR.bugID = req.body.bugID;
     PR.resolvedIssue = false;
     PR.notes = req.body.notes;
@@ -84,7 +88,12 @@ router.post('/submitfix', isAuthed, (req,res) =>{
         if(err){
             console.log(err)
         }
-        res.send('PR submitted')
+        Bugs.findOneAndUpdate({"bugID":req.body.bugID},{$push:{"submittedPRs":prid},$set:{"status":"Under Review"}},function(error){
+            if(error){
+                console.log(error)
+            }
+            res.redirect('/bugs/bug/'+req.body.bugID)
+        })
     })
 })
 
