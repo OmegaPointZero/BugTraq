@@ -8,6 +8,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 + Make endpoints for the following:
     + /bugs/pr/:id (details of PR)
+    + /bugs/pr (integrate tablesview.ejs)
 
     + /user/profile
     + /user/profile/:id
@@ -29,6 +30,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 + Flash messages for login failures
 + Add "projects", that auto-populate parts of the new bug creator, and let the user specify the project
 + Add function to "remember" user longer with cookies, and then make password recovery email-sending stuff.
++ Update /bugs/pr/:id view to look better, maybe implement more tiles
 
 ### Development notes
 
