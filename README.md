@@ -2,20 +2,45 @@
 
 A Bug Tracking application to make managing bugs and projects easier, both for developers and project managers.
 
-### Next Sprint
-
-+ Update Schema for bugs to include longer description of issues, update bug submission form to include them, THEN build the /bugs/bug/:id view 
+### This Sprint
 
 + Make endpoints for the following:
-    + /bugs/pr/:id (details of PR)
-    + /bugs/pr (integrate tablesview.ejs)
-
     + /user/profile
     + /user/profile/:id
     + /user/messages
     + /user/messages/:id (individual message thread)
 
 + Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
+
+### Next Sprint
+
++ Functionality to delete alerts? Be able to make it so that you can clear notifications
++ Sort the messages in the dashboard by the most recent, unread first
++ Flash messages for login failures
++ First Site Review
+    + Create list of tweaks to be made for 
+        + Everybody
+        + Developers/Interns
+        + Project Managers
+    + Go through each page, make list of what needs to be done to polish it
+
+
+##### Polishing list
++ bugid.ejs
+    + Color-code bug type
+    + Change everything so it's not ALL in h5 tags
+    + Put everything into sub-cards, align the cards nicely
++ Sidebar
+    + Link to all PRs, and my PRs (put inside bugs?)
++ PRs.ejs
+    + Same overhaul as bugid.ejs
+    + Add names to "submitted by" links
++ PR.js
+    + Add name to schema
++ Routes
+    + All routes that write to the PRs database need to be updated to handle names
+    + All .ejs files that access the PRs need to be updated to deal with names
+
 
 #### Bigger things to add
 
@@ -26,11 +51,8 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 + Update the dashboard to allow you to choose 1, 2 or 3 or more days' worth of data
     + Create 3 days' worth of data
-+ Sort the messages in the dashboard by the most recent, unread first
-+ Flash messages for login failures
 + Add "projects", that auto-populate parts of the new bug creator, and let the user specify the project
 + Add function to "remember" user longer with cookies, and then make password recovery email-sending stuff.
-+ Update /bugs/pr/:id view to look better, maybe implement more tiles
 
 ### Development notes
 

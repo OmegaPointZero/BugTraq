@@ -12,6 +12,7 @@ var bugSchema = new mongoose.Schema({
     filedByID: String,
     filedByName: String,
     summary: String,
+    description: String,
     status: String, /* (["Unassigned", "Assigned", "In Progress", "Under Review", "PR Rejected", "Resolved"]) */
     type: String, /* (["Critical", "High", "Medium", "Low", "Documentation", "Feature Request"]) */
     active: Boolean, /* set to false after Bug is resolved */

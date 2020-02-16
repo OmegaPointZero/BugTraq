@@ -252,7 +252,7 @@
                     <h5>Submitted by <a href="/users/<%=PR.employeeID%>"><%=PR.employeeID%></a></h5>
                     <h5>Bug ID: <%=PR.bugID%></h5>
                     <h5>Date: <%=(new Date()).toString().split(' ').splice(1,4).join(' ')%></h5>
-                    <h5><a href="PR.prURL">Go to PR</a></h5>
+                    <h5><a href="<%=PR.prURL%>">Go to PR</a></h5>
                     <h5>PR Reviewed? <%if(PR.resolvedIssue===true){%> Yes <% } else { %> No <% } %></h5>
                     <h3>Notes:</h3>
                     <div>

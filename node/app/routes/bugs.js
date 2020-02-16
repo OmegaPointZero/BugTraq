@@ -69,6 +69,7 @@ router.post('/new', isAuthed, (req,res) => {
     BG.dateFiled = new Date().getTime()
     BG.filedByID = req.user.employeeID
     BG.fliedByName = req.user.firstName
+    BG.description = req.body.description
     BG.status = "Unassigned"
     BG.active = true;
     BG.submittedPRs = []
