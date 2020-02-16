@@ -270,12 +270,70 @@
                         </div>
                       </div>
                     </div>
+                    <hr>
+                  <!-- Nav Item - Utilities Collapse Menu -->
+                  <div class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSPR" aria-expanded="true" aria-controls="collapseSPR">
+                      <i class="fas fa-fw fa-id-card"></i>
+                      <span>Submitted PRs</span>
+                    </a>
+                    <div id="collapseSPR" class="collapse nav-item" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                            <% employee.submittedPRs.forEach(function(PR){ %>
+                            <a href="/bugs/pr/<%=PR%>"><%=PR%>,</a>
+                            <% }) %>
+                      </div>
+                    </div>
+                  </div>
+                    <hr>
+                  <!-- Nav Item - Utilities Collapse Menu -->
+                  <div class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSB" aria-expanded="true" aria-controls="collapseSB">
+                      <i class="fas fa-fw fa-id-card"></i>
+                      <span>Submitted Bugs</span>
+                    </a>
+                    <div id="collapseSB" class="collapse nav-item" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                            <% employee.submittedBugs.forEach(function(bug){ %>
+                            <a href="/bugs/bug/<%=bug%>"><%=bug%>,</a>
+                            <% }) %>
+                      </div>
+                    </div>
+                  </div>
+                    <hr>
+                  <!-- Nav Item - Utilities Collapse Menu -->
+                  <div class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAB" aria-expanded="true" aria-controls="collapseAB">
+                      <i class="fas fa-fw fa-id-card"></i>
+                      <span>Assigned Bug</span>
+                    </a>
+                    <div id="collapseAB" class="collapse nav-item" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                            <% employee.assignedBugs.forEach(function(bug){ %>
+                            <a href="/bugs/bug/<%=bug%>"><%=bug%>,</a>
+                            <% }) %>
+                      </div>
+                    </div>
+                  </div>
+                    <hr>
+                  <!-- Nav Item - Utilities Collapse Menu -->
+                  <div class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRB" aria-expanded="true" aria-controls="collapseRB">
+                      <i class="fas fa-fw fa-id-card"></i>
+                      <span>Resolved Bugs</span>
+                    </a>
+                    <div id="collapseRB" class="collapse nav-item" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                            <% employee.resolvedBugs.forEach(function(bug){ %>
+                            <a href="/bugs/bug/<%=bug%>"><%=bug%>,</a>
+                            <% }) %>
+                      </div>
+                    </div>
+                  </div>
 
-                    <h2>YO! CREATE COLLAPSIBLE TABLES RIGHT HERE WITH ALL OF THEIR ASSIGNED AND COMPLETED PROJECTS, PRs AND BUGS</h2>
-                    <%=employee%>
               </div>
 
-
+            <%=employee%>
         </div>
         <!-- /.container-fluid -->
 
