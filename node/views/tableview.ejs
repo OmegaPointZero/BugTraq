@@ -272,6 +272,13 @@
                           <th>Employee ID</th>
                           <th>Role</th>
                           <th>Contact</th>
+                      <% } else if(tableType==="PR"){%>
+                          <th>ID</th>
+                          <th>Author</th>
+                          <th>Bug</th>
+                          <th>Reviewed</th>
+                          <th>Date</th>
+                          <th>Resolved Issue</th>
                       <% } %>
                     </tr>
                   </thead>
@@ -297,6 +304,14 @@
                             <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
                             <td><%=passedItems[i].role%></td>
                             <td><a style="color:#858796" href="/user/messages/<%=passedItems[i].employeeID%>">Messages</a></td>
+
+                          <% } else if(tableType==="PR"){ %>
+                            <td><a style="color:#858796" href="/bugs/pr/<%=passedItems[i].prID%>"><%=passedItems[i].prID%></a></td>
+                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
+                            <td><a style="color:#858796" href="/bugs/bug/<%=passedItems[i].bugID%>"><%=passedItems[i].bugID%></a></td>
+                            <td><% if(passedItems[i].reviewedBy != undefined){%>Yes<%}else{%>No<%}%></td>
+                            <td><%=(new Date(passedItems[i].date)).toString().split(' ').splice(1,4).join(' ')%></td>
+                            <td><% if(passedItems[i].resolvedIssue){%> Yes <% } else { %> No <% } %></td>
                           <% } %>
                             </a>
                         </tr>

@@ -11,7 +11,7 @@ router.get('/', isAuthed, (req,res,next) => {
 
 router.get('/all', isAuthed, (req,res,next) => {
     Bugs.find({},function(err,bugs){
-        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"All Bugs",tableTitle:"Displaying Bugs",tableType:"Bug",passedItemsLen:bugs.length})
+        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"All Bugs",tableTitle:"Displaying Bugs",tableType:"Bug"})
     })
 })
 
@@ -20,7 +20,7 @@ router.get('/unassigned', isAuthed, (req,res) => {
         if(err){
             console.log(err)
         }
-        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"Unassigned Bugs",tableTitle:"Displaying Bugs",tableType:"Bug",passedItemsLen:bugs.length})
+        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"Unassigned Bugs",tableTitle:"Displaying Bugs",tableType:"Bug"})
     })
 })     
 
@@ -29,7 +29,7 @@ router.get('/mine', isAuthed, (req,res) => {
         if(err){
             console.log(err)
         }
-        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"My Bugs",tableTitle:"Displaying Bugs",tableType:"Bug",passedItemsLen:bugs.length})
+        res.render('tableview.ejs', {user:req.user,passedItems:bugs,title:"My Bugs",tableTitle:"Displaying Bugs",tableType:"Bug"})
     })
 })    
 
@@ -51,9 +51,9 @@ router.get('/pr/:id', isAuthed, (req,res) => {
     })
 })
 
-router.get('/pr', (req,res) => {
+router.get('/pr', isAuthed, (req,res) => {
     PRs.find({},function(err,PRs){
-        res.send(JSON.stringify(PRs))
+        res.render('tableview.ejs',{user:req.user,passedItems:PRs,title:"PRs",tableTitle:"Submitted PRs",tableType:"PR"})
     })
 })
 
