@@ -5,9 +5,6 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 ### This Sprint
 
 + Make endpoints for the following:
-    + /user/profile
-    + /user/profile/:id
-
     + /user/messages
     + /user/messages/:id (individual message thread)
 
