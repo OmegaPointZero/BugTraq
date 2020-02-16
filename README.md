@@ -4,15 +4,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 ### Next Sprint
 
-+ /bugs/bug/:id (the actual bug profile being worked on)
-    + Option to assign to myself if not mine 
-
-+ Touch up the following:
-    + Touch up title/login page, make new image for it
-
-+ Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
-
-+ Update Schema for bugs to include longer description of issues, update bug submission form to include them, THEN build the /bugs/bug/:id view
++ Update Schema for bugs to include longer description of issues, update bug submission form to include them, THEN build the /bugs/bug/:id view 
 
 + Make endpoints for the following:
     + /bugs/pr/:id (details of PR)
@@ -21,6 +13,8 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + /user/profile/:id
     + /user/messages
     + /user/messages/:id (individual message thread)
+
++ Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
 
 #### Bigger things to add
 
@@ -34,6 +28,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 + Sort the messages in the dashboard by the most recent, unread first
 + Flash messages for login failures
 + Add "projects", that auto-populate parts of the new bug creator, and let the user specify the project
++ Add function to "remember" user longer with cookies, and then make password recovery email-sending stuff.
 
 ### Development notes
 

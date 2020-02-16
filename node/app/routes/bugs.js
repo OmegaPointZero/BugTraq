@@ -42,6 +42,21 @@ router.get('/bug/:id', isAuthed, (req,res) => {
     })
 })
 
+router.get('/pr/:id', isAuthed, (req,res) => {
+    PRs.findOne({"prID":req.params.id},function(err,PR){
+        if(err){
+            console.log(err)
+        }
+        res.render('PRs.ejs', {user:req.user,PR:PR})
+    })
+})
+
+router.get('/pr', (req,res) => {
+    PRs.find({},function(err,PRs){
+        res.send(JSON.stringify(PRs))
+    })
+})
+
 router.get('/new', isAuthed, (req,res) => {
     res.render('newbug.ejs', {user:req.user})
 })
@@ -108,6 +123,23 @@ router.post('/submitfix', isAuthed, (req,res) =>{
                 }
                 res.redirect('/bugs/bug/'+req.body.bugID)
             })
+        })
+    })
+})
+
+router.post('/reassign', isAuthed, (req,res) => {
+        console.log(req.body)
+     Bugs.findOneAndUpdate({"bugID":req.body.bugID},{$set:{"assignedTo":req.body.employeeID,"assignedName":req.body.firstName}},function(err,results){
+        if(err){
+            console.log("Error reassigning bug to "+req.user.employeeID+":")
+            console.log(err)
+        }
+        User.findOneAndUpdate({"employeeID":req.body.employeeID},{$push:{"assigned":""}},function(e,newUser){
+            if(e){
+                console.log("Error updating new owner's profile:")
+                console.log(e)
+            }
+            res.send({"code":"successful","reassigned":true})
         })
     })
 })
