@@ -1,12 +1,13 @@
 # BugTraq
 
-A Bug Tracking application to make managing bugs and projects easier, both for developers and project managers.
+A Bug Tracking application to make managing bugs and projects easier, both for developers and project managers. It's nearing it's first version completion! Upon completion, a user's guide/documentation will be written.
 
 ### This Sprint
 
 + Make endpoints for the following:
     + /user/profile
     + /user/profile/:id
+
     + /user/messages
     + /user/messages/:id (individual message thread)
 
@@ -57,10 +58,6 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 ### Development notes
 
 The /bugs/all route works, but is not linked to anywhere. What I need to do now, is to tweak the allbugs.ejs to be THE singular bugs template file, so that all other /bugs/ endpoints use that template (with the exception of /bugs/bug/:id and /bugs/new, as the former will have more detailed information displayed differently (and allow the user to submit a PR to fix it), and the latter will allow a user to file a new bug. Schemas have to be tweaked, and from an individual bug's page it should have the option to "claim" it and assign it to yourself.
-
-### Features
-
-+ Coming Soon
 
 ## API Documentation
 

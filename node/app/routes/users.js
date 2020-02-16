@@ -9,13 +9,13 @@ router.get('/team', isAuthed, (req,res) => {
 })
 
 router.get('/profile/:id', isAuthed, (req,res) => {
-    Users.find({"employeeID":req.params.id},function(err,employee){
+    Users.findOne({"employeeID":req.params.id},function(err,employee){
         res.render('profile.ejs', {user:req.user,employee:employee})
     })
 })
 
 router.get('/profile', isAuthed, (req,res) => {
-    res.render('myprofile.ejs', {user:req.user})
+    res.render('profile.ejs', {user:req.user,employee:req.user})
 })
 
 router.get('/messages/:id', isAuthed, (req,res) => {

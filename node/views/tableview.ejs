@@ -298,16 +298,16 @@
                             <td><%=(new Date(passedItems[i].dateFiled)).toString().split(' ').splice(1,4).join(' ')%></td>
                             <td><%=passedItems[i].active%></td>
                           <% } else if(tableType==="Team"){ %>
-                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].firstName%></a></td>
+                            <td><a style="color:#858796" href="/user/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].firstName%></a></td>
                             <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].lastName%></a></td>
                             <td><a style="color:#858796" href="mailto:<%=passedItems[i].email%>"><%=passedItems[i].email%></a></td>
-                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
+                            <td><a style="color:#858796" href="/user/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
                             <td><%=passedItems[i].role%></td>
                             <td><a style="color:#858796" href="/user/messages/<%=passedItems[i].employeeID%>">Messages</a></td>
 
                           <% } else if(tableType==="PR"){ %>
                             <td><a style="color:#858796" href="/bugs/pr/<%=passedItems[i].prID%>"><%=passedItems[i].prID%></a></td>
-                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
+                            <td><a style="color:#858796" href="/user/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
                             <td><a style="color:#858796" href="/bugs/bug/<%=passedItems[i].bugID%>"><%=passedItems[i].bugID%></a></td>
                             <td><% if(passedItems[i].reviewedBy != undefined){%>Yes<%}else{%>No<%}%></td>
                             <td><%=(new Date(passedItems[i].date)).toString().split(' ').splice(1,4).join(' ')%></td>

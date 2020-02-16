@@ -237,11 +237,43 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
     
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">My Team</h1>
-          </div>
+              <!-- Page Heading -->
+              <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <% if(employee.employeeID === user.employeeID){ %>
+                    <h1 class="h3 mb-0 text-gray-800">My Profile</h1>
+                <% } %>
+              </div>
 
+              <!-- Basic Card Example -->
+              <div class="card shadow card-body mb-4">
+
+
+                    <div class="col-xl-5 col-md-8 mb-6">
+                      <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2" style="display:flex">
+                              <img class="rounded-circle" style="max-width:50%;height:auto;order:2" src="/images/avatars/<%=employee.avatar%>">
+
+                              <div class="h5 mb-0 font-weight-bold text-gray-800" style="order:1">
+                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><%=employee.firstName%> <%=employee.lastName%></div>
+                                    <hr>
+                                    <h6>Employee ID: <%=employee.employeeID%></h6>
+                                    <h6>Role: <%=employee.role%></h6>
+                                    <h6>Email: <a href="mailto:<%=employee.email%>"><%=employee.email%></a></h6>
+                                <% if(employee.employeeID != user.employeeID){ %>
+                                    <h6><a href="/user/messages/<%=employee.employeeID%>">Go To Messages</a></h6>
+                                <% } %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h2>YO! CREATE COLLAPSIBLE TABLES RIGHT HERE WITH ALL OF THEIR ASSIGNED AND COMPLETED PROJECTS, PRs AND BUGS</h2>
+                    <%=employee%>
+              </div>
 
 
         </div>

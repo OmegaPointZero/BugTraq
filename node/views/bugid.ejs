@@ -259,7 +259,7 @@
                     <% if(isMine){%>
                         <h5>Assigned to: Me</h5>
                     <% } else if(!isMine && passedItems.status !== "Resolved") { %>
-                        <h5>Assigned to: <a href="/users/profile/<%=passedItems.assignedTo%>"><%=passedItems.assignedName%></a> <button style="background-color:#e74a3b;color:white;border-color:#e74a3b;border-radius:5px;" id="reassign">Claim</button></h5>
+                        <h5>Assigned to: <a href="/user/profile/<%=passedItems.assignedTo%>"><%=passedItems.assignedName%></a> <button style="background-color:#e74a3b;color:white;border-color:#e74a3b;border-radius:5px;" id="reassign">Claim</button></h5>
                     <% } %>
                     <h5>Summary: <%=passedItems.summary%></h5>
                     <h5>Description</h5>
