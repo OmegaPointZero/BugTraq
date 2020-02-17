@@ -250,7 +250,7 @@
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Conversation with <a href="/user/profile/<%=messages.senderID%>"><%=messages.senderName%></a></h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Conversation with <a href="/user/profile/<%=messages.senderID%>"> <%=messages.senderName%> </a></h6>
                 </div>
                 <div class="card-body">
                   <div class="chat-body" style="display:block">
@@ -265,6 +265,7 @@
                   </div>
                   <form action="/user/sendmessage" method="POST">
                     <input name="messageBody" class="msgInputArea">
+                    <input name="target" value="<%=messages.senderID%>" style="display:none">
                     <button>Submit</button>
                   </form>
                 </div>

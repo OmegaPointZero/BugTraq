@@ -29,7 +29,12 @@ router.get('/messages', isAuthed, (req,res) => {
 router.post('/sendMessage', isAuthed, (req,res) => {
     console.log('RECD MESSAGE\n')
     console.log(req.body)
-    res.send('100')
+    var threads = req.user.messages.threads
+    var m = threads.filter(obj => {return obj.senderID === req.body.target})[0].messages;
+    m.push({"type":"OUT","time":new Date().getTime(),message:req.body.messageBody,read:false})
+    console.log(m)
+    console.log("Oh, maybe updating an array inside an object in an array of objects in an object that's in a DB is hard...")
+
 })
 
 function isAuthed(req,res,next){
