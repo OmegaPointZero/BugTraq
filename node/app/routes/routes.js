@@ -11,7 +11,6 @@ router.get('/', isAuthed, (req,res) => {
 });
 
 router.get('/login',(req,res) => {
-    console.log(`req.user: ${req.user}`)
     res.render('login.html')
 });
 
