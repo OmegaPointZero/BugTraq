@@ -37,6 +37,8 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 + Routes
     + All routes that write to the PRs database need to be updated to handle names
     + All .ejs files that access the PRs need to be updated to deal with names
++ message.ejs
+    + Make message input and button area look better
 
 
 #### Bigger things to add
@@ -48,7 +50,6 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 + Update the dashboard to allow you to choose 1, 2 or 3 or more days' worth of data
     + Create 3 days' worth of data
-+ Add "projects", that auto-populate parts of the new bug creator, and let the user specify the project
 + Add function to "remember" user longer with cookies, and then make password recovery email-sending stuff.
 
 ### Development notes

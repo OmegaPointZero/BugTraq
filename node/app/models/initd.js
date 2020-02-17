@@ -143,7 +143,7 @@ module.exports = [
                         senderID: "0999",
                         avatar: "av10.png",
                         lastMessage: genRecentStamp(2,9,04,27),
-                        unread: 0,
+                        unread: 1,
                         messages: [
                             {   
                                 type: "OUT",
@@ -194,7 +194,7 @@ module.exports = [
                                 type: "IN",
                                 time: genRecentStamp(0,5,44,59),
                                 message: "The chat is working",
-                                read: true
+                                read: false
                             }    
                         ]
                     } 

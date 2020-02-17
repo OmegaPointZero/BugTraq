@@ -135,7 +135,7 @@ router.post('/reassign', isAuthed, (req,res) => {
             console.log("Error reassigning bug to "+req.user.employeeID+":")
             console.log(err)
         }
-        User.findOneAndUpdate({"employeeID":req.body.employeeID},{$push:{"assigned":""}},function(e,newUser){
+        User.findOneAndUpdate({"employeeID":req.body.employeeID},{$push:{"assignedBugs":req.body.bugID}},function(e,newUser){
             if(e){
                 console.log("Error updating new owner's profile:")
                 console.log(e)
