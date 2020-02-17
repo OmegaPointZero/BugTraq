@@ -279,6 +279,11 @@
                           <th>Reviewed</th>
                           <th>Date</th>
                           <th>Resolved Issue</th>
+                      <% } else if(tableType==="threads"){%>
+                          <th>User</th>
+                          <th>Last Message</th>
+                          <th>Date</th>
+                          <th>Read</th>
                       <% } %>
                     </tr>
                   </thead>
@@ -312,8 +317,14 @@
                             <td><% if(passedItems[i].reviewedBy != undefined){%>Yes<%}else{%>No<%}%></td>
                             <td><%=(new Date(passedItems[i].date)).toString().split(' ').splice(1,4).join(' ')%></td>
                             <td><% if(passedItems[i].resolvedIssue){%> Yes <% } else { %> No <% } %></td>
+
+
+                          <% } else if(tableType==="threads"){ %>
+                            <td><a href="/user/profile/<%=passedItems[i].senderID%>"><img class="rounded-image" style="width:2.5rem" src="/images/avatars/<%=passedItems[i].avatar%>"><%=passedItems[i].senderName%></a></td> <!-- name/link-->
+                            <td><a href="/user/messages/<%=passedItems[i].senderID%>" style="color:#858796"><%=passedItems[i].messages[0].message%></a></td> <!-- last message -->
+                            <td><%=(new Date(passedItems[i].lastMessage)).toString().split(' ').splice(1,4).join(' ')%></td>
+                            <td><%if(passedItems[i].unread===0){%> Yes <%} else {%> <b><%=passedItems[i].unread%> Unread Messages</b> <% } %> </td>
                           <% } %>
-                            </a>
                         </tr>
                     <% } %>
                   </tbody>

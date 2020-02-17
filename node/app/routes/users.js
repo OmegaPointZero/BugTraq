@@ -23,7 +23,7 @@ router.get('/messages/:id', isAuthed, (req,res) => {
 })
 
 router.get('/messages', isAuthed, (req,res) => {
-    res.render('mymessages.ejs', {user:req.user})
+    res.render('tableview.ejs', {user:req.user,passedItems:req.user.messages.threads,title:"Threads",tableTitle:"Threads",tableType:"threads"})
 })
 
 function isAuthed(req,res,next){
