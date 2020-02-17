@@ -27,14 +27,22 @@ router.get('/messages', isAuthed, (req,res) => {
 })
 
 router.post('/sendMessage', isAuthed, (req,res) => {
-    console.log('RECD MESSAGE\n')
+    var newMessage = {"type":"OUT","time":new Date().getTime(),message:req.body.messageBody,read:false} 
     console.log(req.body)
-    var threads = req.user.messages.threads
-    var m = threads.filter(obj => {return obj.senderID === req.body.target})[0].messages;
-    m.push({"type":"OUT","time":new Date().getTime(),message:req.body.messageBody,read:false})
-    console.log(m)
-    console.log("Oh, maybe updating an array inside an object in an array of objects in an object that's in a DB is hard...")
-
+    console.log(newMessage)
+    Users.findOneAndUpdate({
+        'employeeID':req.user.employeeID,
+        'messages.threads.senderID':req.body.target
+    },{
+        $push:{
+            'messages.threads.$.messages':newMessage
+        }
+    },function(err){
+        if(err){
+            console.log(err)
+        }
+        res.redirect('/user/messages/'+req.body.target)
+    })
 })
 
 function isAuthed(req,res,next){

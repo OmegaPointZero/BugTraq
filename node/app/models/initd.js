@@ -116,7 +116,7 @@ module.exports = [
             "resolvedBugs": ["3ec13b959"],
             "messages": {
                 unreadMessages: 3, 
-                unreadThreads: 1, 
+                unreadThreads: 2, 
                 threads: [
                     {
                         senderName: "Terry",

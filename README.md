@@ -39,6 +39,7 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
     + All .ejs files that access the PRs need to be updated to deal with names
 + message.ejs
     + Make message input and button area look better
+    + Fix sidebar, is old and points to dead links and is incomplete
 
 
 #### Bigger things to add
