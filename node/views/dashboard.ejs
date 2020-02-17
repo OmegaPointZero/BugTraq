@@ -176,7 +176,7 @@
                 <span class="badge badge-danger badge-counter"><%=user.messages.unreadMessages%></span>
               </a>
                 <% var maximumPreviews %>
-                <% user.messages.unreadThreads < 5 ? maximumPreviews = user.messages.unreadMessages : maximumPreviews = 4 %>
+                <% user.messages.unreadThreads < 5 ? maximumPreviews = user.messages.unreadThreads : maximumPreviews = 4 %>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
@@ -199,19 +199,19 @@
 
                 <% for(var i=0;i<maximumPreviews;i++){ %>
                 <% var thread = user.messages.threads[i] %>
-                <% var sortedMessages = thread.messages.sort(function(b,a){return a.time - b.time})%>
-                <% msg = sortedMessages[sortedMessages.length-1] %>
-                <a class="dropdown-item d-flex align-items-center" href="/user/messages/<%=thread.senderID%>">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="/images/avatars/<%=thread.avatar%>" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div <%if(thread.unread >0) {%> class="font-weight-bold" <%}%>>
-                    <% msg = thread.messages[0] %>
-                    <div class="text-truncate"><%if(thread.unread > 0){%>(<%=thread.unread%>)<%}%> <%if(msg.type ==="OUT"){%> <i class="fas fa-reply"></i><% } %> <%=msg.message%></div>
-                    <div class="small text-gray-500"><%=thread.senderName%> · <%=timeAgo(thread.lastMessage)%></div>
-                  </div>
-                </a>
+                    <% var sortedMessages = thread.messages.sort(function(b,a){return a.time - b.time})%>
+                    <% msg = sortedMessages[sortedMessages.length-1] %>
+                    <a class="dropdown-item d-flex align-items-center" href="/user/messages/<%=thread.senderID%>">
+                      <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="/images/avatars/<%=thread.avatar%>" alt="">
+                        <div class="status-indicator bg-success"></div>
+                      </div>
+                      <div <%if(thread.unread >0) {%> class="font-weight-bold" <%}%>>
+                        <% msg = thread.messages[0] %>
+                        <div class="text-truncate"><%if(thread.unread > 0){%>(<%=thread.unread%>)<%}%> <%if(msg.type ==="OUT"){%> <i class="fas fa-reply"></i><% } %> <%=msg.message%></div>
+                        <div class="small text-gray-500"><%=thread.senderName%> · <%=timeAgo(thread.lastMessage)%></div>
+                      </div>
+                    </a>
 
                 <% } %>
             </li>
