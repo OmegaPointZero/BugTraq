@@ -115,7 +115,7 @@ module.exports = [
             "assignedBugs": ["f17dce974"],
             "resolvedBugs": ["3ec13b959"],
             "messages": {
-                unreadMessages: 2, 
+                unreadMessages: 3, 
                 unreadThreads: 1, 
                 threads: [
                     {

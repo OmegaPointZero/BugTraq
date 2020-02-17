@@ -197,7 +197,8 @@
                 <% } %>
                 <% for(var i=0;i<maximumPreviews;i++){ %>
                 <% var thread = user.messages.threads[i] %>
-
+                <% var sortedMessages = thread.messages.sort(function(b,a){return a.time - b.time})%>
+                <% msg = sortedMessages[sortedMessages.length-1] %>
                 <a class="dropdown-item d-flex align-items-center" href="/user/messages/<%=thread.senderID%>">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="/images/avatars/<%=thread.avatar%>" alt="">
