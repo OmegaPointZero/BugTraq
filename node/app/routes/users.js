@@ -26,6 +26,12 @@ router.get('/messages', isAuthed, (req,res) => {
     res.render('tableview.ejs', {user:req.user,passedItems:req.user.messages.threads,title:"Threads",tableTitle:"Threads",tableType:"threads"})
 })
 
+router.post('/sendMessage', isAuthed, (req,res) => {
+    console.log('RECD MESSAGE\n')
+    console.log(req.body)
+    res.send('100')
+})
+
 function isAuthed(req,res,next){
     if(req.isAuthenticated())
         return next();

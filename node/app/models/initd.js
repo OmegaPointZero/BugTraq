@@ -150,12 +150,52 @@ module.exports = [
                                 time: genRecentStamp(2,9,04,27),
                                 message: "Thank you!",
                                 read: true
-                            }, {
+                            },{
                                 type: "IN",
                                 time: genRecentStamp(2,8,44,59),
                                 message: "Here's the stuff you requested!",
                                 read: true
-                            }                
+                            },{   
+                                type: "OUT",
+                                time: genRecentStamp(2,5,04,27),
+                                message: "Guess what!",
+                                read: true
+                            },{
+                                type: "IN",
+                                time: genRecentStamp(2,1,44,59),
+                                message: "We are trapped in a demo!",
+                                read: true
+                            },{   
+                                type: "OUT",
+                                time: genRecentStamp(1,18,04,27),
+                                message: "This is a message!",
+                                read: true
+                            },{
+                                type: "IN",
+                                time: genRecentStamp(1,17,44,59),
+                                message: "Just need more data!",
+                                read: true
+                            },{   
+                                type: "OUT",
+                                time: genRecentStamp(1,14,04,27),
+                                message: "Have you taken a lunch yet?",
+                                read: true
+                            },{
+                                type: "IN",
+                                time: genRecentStamp(1,13,44,59),
+                                message: "I just got back from lunch",
+                                read: true
+                            },{   
+                                type: "OUT",
+                                time: genRecentStamp(0,4,34,97),
+                                message: "Test text message?",
+                                read: true
+                            }, {
+                                type: "IN",
+                                time: genRecentStamp(0,5,44,59),
+                                message: "The chat is working",
+                                read: true
+                            }    
                         ]
                     } 
                 ] 

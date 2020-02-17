@@ -314,7 +314,7 @@
                             <td><%=passedItems[i].active%></td>
                           <% } else if(tableType==="Team"){ %>
                             <td><a style="color:#858796" href="/user/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].firstName%></a></td>
-                            <td><a style="color:#858796" href="/users/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].lastName%></a></td>
+                            <td><a style="color:#858796" href="/user/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].lastName%></a></td>
                             <td><a style="color:#858796" href="mailto:<%=passedItems[i].email%>"><%=passedItems[i].email%></a></td>
                             <td><a style="color:#858796" href="/user/profile/<%=passedItems[i].employeeID%>"><%=passedItems[i].employeeID%></a></td>
                             <td><%=passedItems[i].role%></td>
@@ -331,11 +331,14 @@
 
                           <% } else if(tableType==="threads"){ %>
                             <% var pi = orderMessages(passedItems)[0]%>
-                            <%=JSON.stringify(pi[0])%>
-                            <td><a href="/user/profile/<%=pi[i].senderID%>"><%=pi[i].senderName%></a></td>
-                            <td><a href=""></a></td>
-                            <td><a href=""></a></td>
-                            <td><a href=""></a></td>
+                            <td><a href="/user/messages/<%=pi[i].senderID%>"><%=pi[i].senderName%></a></td>
+                            <td><a href="/user/messages/<%=pi[i].senderID%>"><%=pi[i].messages[0].message%></a></td>
+                            <td><%=(new Date(pi[i].lastMessage)).toString().split(' ').splice(1,4).join(' ')%></td>
+                            <% if(pi[i].unread>0) { %>
+                                <td><b><%=pi[i].unread%> Unread</b></td>
+                            <% } else { %>
+                                <td>Read</td>
+                            <% } %>
                           <% } %>
                         </tr>
                     <% } %>

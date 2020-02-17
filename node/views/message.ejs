@@ -250,19 +250,23 @@
               <!-- Basic Card Example -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Conversation with <%=messages.senderName%></h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Conversation with <a href="/user/profile/<%=messages.senderID%>"><%=messages.senderName%></a></h6>
                 </div>
                 <div class="card-body">
                   <div class="chat-body" style="display:block">
                     <% var sortedMessages = messages.messages.sort(function(a,b){return a.time - b.time})%>
                     <% sortedMessages.forEach(function(message){%>
                         <% if(message.type==="OUT"){%>  
-                            <div class="msg-out" style="width:100%;text-align:right;"><%=JSON.stringify(message.message)%><img class="rounded-circle" src="/images/avatars/<%=user.avatar%>" style="max-width:1.8rem"></div>
+                            <div class="msg-out" style="width:100%;text-align:right;"><%=JSON.stringify(message.message)%> (<%=timeAgo(message.time)%> )<img class="rounded-circle" src="/images/avatars/<%=user.avatar%>" style="max-width:1.8rem"></div>
                         <% } else { %>
-                            <div class="msg-in" style="width:100%;text-align:left;"><img class="rounded-circle" src="/images/avatars/<%=messages.avatar%>" style="max-width:1.8rem"> <%=JSON.stringify(message.message)%></div>
+                            <div class="msg-in" style="width:100%;text-align:left;"><img class="rounded-circle" src="/images/avatars/<%=messages.avatar%>" style="max-width:1.8rem">(<%=timeAgo(message.time)%> ) <%=JSON.stringify(message.message)%></div>
                         <% } %>
                     <% }) %>
                   </div>
+                  <form action="/user/sendmessage" method="POST">
+                    <input name="messageBody" class="msgInputArea">
+                    <button>Submit</button>
+                  </form>
                 </div>
               </div>
         </div>
