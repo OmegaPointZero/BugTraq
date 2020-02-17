@@ -184,7 +184,17 @@
                         <% return Math.floor(secondsAgo/(3600*24)) + " days ago" %>
                     <% } %>
                 <% }) %>
-
+                <% const sorted = function(...arr){ var a = arr.sort(function(a,b){ return b.lastMessage - b.lastMessage });return a}%>  
+                <% const orderMessages = function(...arr){ %>
+                    <% var read = [] %>
+                    <% var unread = [] %>
+                    <% arr.forEach(function(message){ %>
+                      <%  message.unread === 0 ? read.push(message) : unread.push(message) %>
+                    <% }) %>
+                    <% read = sorted(read)[0] %>
+                    <% unread = sorted(unread)[0] %>
+                    <% return unread.concat(read) %>
+                <% } %>
                 <% for(var i=0;i<maximumPreviews;i++){ %>
                 <% var thread = user.messages.threads[i] %>
 
@@ -320,10 +330,12 @@
 
 
                           <% } else if(tableType==="threads"){ %>
-                            <td><a href="/user/profile/<%=passedItems[i].senderID%>"><img class="rounded-image" style="width:2.5rem" src="/images/avatars/<%=passedItems[i].avatar%>"><%=passedItems[i].senderName%></a></td> <!-- name/link-->
-                            <td><a href="/user/messages/<%=passedItems[i].senderID%>" style="color:#858796"><%=passedItems[i].messages[0].message%></a></td> <!-- last message -->
-                            <td><%=(new Date(passedItems[i].lastMessage)).toString().split(' ').splice(1,4).join(' ')%></td>
-                            <td><%if(passedItems[i].unread===0){%> Yes <%} else {%> <b><%=passedItems[i].unread%> Unread Messages</b> <% } %> </td>
+                            <% var pi = orderMessages(passedItems)[0]%>
+                            <%=JSON.stringify(pi[0])%>
+                            <td><a href="/user/profile/<%=pi[i].senderID%>"><%=pi[i].senderName%></a></td>
+                            <td><a href=""></a></td>
+                            <td><a href=""></a></td>
+                            <td><a href=""></a></td>
                           <% } %>
                         </tr>
                     <% } %>
@@ -332,17 +344,6 @@
               </div>
             </div>
           </div>
-
-
-
-
-        <script>
-            $(document).ready(function(){
-                $('#myTable').DataTable();
-            });
-        </script>
-
-
 
         </div>
         <!-- /.container-fluid -->
@@ -406,6 +407,11 @@
 
   <!-- Page level custom scripts -->
   <script src="/js/demo/datatables-demo.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+</script>
 
 </body>
 

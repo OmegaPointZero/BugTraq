@@ -19,7 +19,7 @@ router.get('/profile', isAuthed, (req,res) => {
 })
 
 router.get('/messages/:id', isAuthed, (req,res) => {
-    res.render('message.ejs', {user:req.user})
+    res.render('message.ejs', {user:req.user,msgID:req.params.id})
 })
 
 router.get('/messages', isAuthed, (req,res) => {

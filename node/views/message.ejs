@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BugTracc - Dashboard</title>
+  <title>BugTracc - Messaging</title>
 
   <!-- Custom fonts for this template-->
   <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -234,15 +234,37 @@
         </nav>
         <!-- End of Topbar -->
 
+
+        <% var msg = user.messages.threads %>
+        <% var messages = msg.filter(m => m.senderID == msgID)[0]; %>
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
     
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">One last placeholder page</h1>
+            <h1 class="h3 mb-0 text-gray-800">Messaging</h1>
           </div>
-            <%=JSON.stringify(user.messages)%>
 
+
+              <!-- Basic Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Conversation with <%=messages.senderName%></h6>
+                </div>
+                <div class="card-body">
+                  <div class="chat-body" style="display:block">
+                    <% var sortedMessages = messages.messages.sort(function(a,b){return a.time - b.time})%>
+                    <% sortedMessages.forEach(function(message){%>
+                        <% if(message.type==="OUT"){%>  
+                            <div class="msg-out" style="width:100%;text-align:right;"><%=JSON.stringify(message.message)%><img class="rounded-circle" src="/images/avatars/<%=user.avatar%>" style="max-width:1.8rem"></div>
+                        <% } else { %>
+                            <div class="msg-in" style="width:100%;text-align:left;"><img class="rounded-circle" src="/images/avatars/<%=messages.avatar%>" style="max-width:1.8rem"> <%=JSON.stringify(message.message)%></div>
+                        <% } %>
+                    <% }) %>
+                  </div>
+                </div>
+              </div>
         </div>
         <!-- /.container-fluid -->
 
