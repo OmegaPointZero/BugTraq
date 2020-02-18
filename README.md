@@ -17,7 +17,17 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
         + Developers/Interns
         + Project Managers
     + Go through each page, make list of what needs to be done to polish it
-
++ Add to package.json:
+    + mongodb 
+    + mongoose 
+    + morgan 
+    + body-parser 
+    + passport x
+    + express-session x
+    + connect-flash x
+    + passport-local x
+    + bcrypt-nodejs x
+    + 
 
 ##### Polishing list
 + bugid.ejs
