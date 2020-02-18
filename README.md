@@ -4,9 +4,6 @@ A Bug Tracking application to make managing bugs and projects easier, both for d
 
 ### This Sprint
 
-+ Make controller to update messages for both users upon message being sent
-    + Mark viewed messages as read 
-
 + Create new database collection for "projects", to keep track of bugs better. Projects will also be used to auto-populate information being submitted to the new bug data controller.
 
 ### Next Sprint

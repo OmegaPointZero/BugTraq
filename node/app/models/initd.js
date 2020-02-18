@@ -226,6 +226,7 @@ module.exports = [
                     {
                         senderName: "Joshua",
                         senderID: "5613",
+                        avatar: "av3.png",
                         lastMessage: genRecentStamp(2,9,04,27),
                         unread: 0,
                         messages: [
@@ -268,8 +269,8 @@ module.exports = [
                 unreadThreads: 1, 
                 threads: [
                     {
-                        senderName: "",
-                        senderID: "",
+                        senderName: "Nikola",
+                        senderID: "0369",
                         avatar: "av9.png",
                         lastMessage: genRecentStamp(1,11,11,11),
                         unread: 1,
